@@ -1,0 +1,1 @@
+css = require('css-modulesify');

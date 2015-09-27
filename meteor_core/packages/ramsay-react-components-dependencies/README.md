@@ -1,0 +1,1 @@
+Base dependencies for react components

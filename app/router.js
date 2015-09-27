@@ -6,4 +6,20 @@ FlowRouter.route('/', {
 			redirect('/' + Meteor.user().username)
 		)
 	}]
-})
+});
+
+FlowRouter.route('/login', {
+	triggersEnter: [function(context, redirect){
+		if (Meteor.userId()){
+			redirect('/');
+		}
+	}],
+	action: function(){
+		ReactLayout.render(MainLayout, {
+			noHeader: true,
+			content: <LoginPage/>
+		})
+	}
+});
+
+FlowRouter.initialize();
