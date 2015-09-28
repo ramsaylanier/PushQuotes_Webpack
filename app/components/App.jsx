@@ -14,7 +14,7 @@ export default class App extends Component {
     return {
       users: Users.find().fetch()
     };
-  }
+  },
 
   render() {
     let userCount = Users.find().fetch().length;

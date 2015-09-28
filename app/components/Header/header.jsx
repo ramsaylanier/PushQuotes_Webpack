@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
 import CSSModules from 'react-css-modules';
-import './header.css';
 
 import styles from './header.css';
 
@@ -15,6 +14,7 @@ const Header = React.createClass({
 	render: function(){
 
 		let className = styles.element;
+		console.log(this.data);
 
 		return (
 			<header styleName='element'>
