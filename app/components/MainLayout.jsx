@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
 
-import Header from "./Header/header.jsx";
+import Header from './Header/header.jsx';
 
-
-let MainLayout = React.createClass({
+const MainLayout = React.createClass({
 	render(){
 
 		var withUser = Meteor.userId();
@@ -18,14 +17,13 @@ let MainLayout = React.createClass({
 					</div>
 				</Header>
 
-				<AlertsComponent/>
-
 				<main>
 					{this.props.content}
 				</main>
+				
 			</div>
 		)
 	}
 });
 
-export const MainLayout;
+export default MainLayout;

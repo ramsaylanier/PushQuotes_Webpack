@@ -1,46 +1,54 @@
 import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
+import CSSModules from 'react-css-modules';
 
+import Settings from '../../settings.js';
+import PageAnimations from './animations.js';
+
+import styles from './page.scss';
 
 // Write your package code here!
-Page = React.createClass({
-	componentDidMount: function(){
+const Page = React.createClass({
+	componentDidMount(){
 		if (Settings.AnimatePages){
-			var item = $(this.getDOMNode());
-			var animation = this.props.animation || PageAnimations.animateIn;
-			AnimateItem(item, PageAnimations.animateIn);
+			// var item = $(this.getDOMNode());
+			// var animation = this.props.animation || PageAnimations.animateIn;
+			// AnimateItem(item, PageAnimations.animateIn);
 		}
 	},
-	render: function(){
-		var styles = {
+	render(){
+		let bgImage = {
 			backgroundImage: "url('" + this.props.backgroundImage + "')",
 		}
 
-		var children = this.props.children;
+		let className = styles.element;
+
+
+		let children = this.props.children;
 		return(
-			<div className={"page " + this.props.className} style={styles}>
+			<div className={className}>
 				{children}
 			</div>
 		)
 	}
 });
 
-let PageHeader = React.createClass({
+const PageHeader = React.createClass({
 	render: function(){
 
-		var styles = this.props.backgroundImage && {
+		var bg = this.props.backgroundImage && {
 			backgroundImage: "url('" + this.props.backgroundImage + "')",
 		};
 
 		return (
-			<div className="page-header" style={styles}>
+			<div className="page-header" style={bg}>
 				{this.props.children}
 			</div>
 		)
 	}
 });
 
-let PageTitle = React.createClass({
+const PageTitle = React.createClass({
 	componentDidMount: function(){
 		var item = this.getDOMNode();
 		$(item).velocity({
@@ -57,7 +65,7 @@ let PageTitle = React.createClass({
 	}
 });
 
-PageContent = React.createClass({
+const PageContent = React.createClass({
 	render(){
 		return(
 			<div className={"page-content " + this.props.classes}>
@@ -69,7 +77,7 @@ PageContent = React.createClass({
 	}
 })
 
-PageSection = React.createClass({
+const PageSection = React.createClass({
 	render:function(){
 		return(
 			<section className={"page-section " + this.props.className}>
@@ -82,7 +90,7 @@ PageSection = React.createClass({
 	}
 });
 
-PageSeparator = React.createClass({
+const PageSeparator = React.createClass({
 	render: function(){
 		return(
 			<div className="page-separator">
@@ -91,25 +99,4 @@ PageSeparator = React.createClass({
 	}
 });
 
-PageAnimations = {
-	defaults: {
-		duration: .5,
-		properties: {
-			opacity: 1,
-			ease: Power2.easeOut
-		}
-	}
-}
-
-PageAnimations.animateIn = {
-	duration: PageAnimations.defaults.duration,
-	properties: PageAnimations.defaults.properties
-}
-
-PageAnimations.animateOut = {
-	duration: PageAnimations.defaults.duration,
-	properties: {
-		opacity: 0,
-		ease: Power2.easeOut
-	}
-}
+export { Page, PageHeader, PageTitle, PageContent, PageSection, PageSeparator };

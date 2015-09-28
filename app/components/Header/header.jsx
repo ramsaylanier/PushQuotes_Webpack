@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
+import CSSModules from 'react-css-modules';
+import './header.css';
 
-let Header = React.createClass({
+import styles from './header.css';
+
+const Header = React.createClass({
 	mixins: [ReactMeteorData],
 	getMeteorData(){
 		return{
@@ -9,16 +13,12 @@ let Header = React.createClass({
 		}
 	},
 	render: function(){
-		return (
-			<header className={this.props.className}>
-				<div className="wrapper">
-					<Logo/>
-					{Navs.map(function(nav){
-						if (nav.location == 'header'){
-							return <NavList key={nav.name} navItems={nav.navItems()} navType={nav.name}/>
-						}
-					})}
 
+		let className = styles.element;
+
+		return (
+			<header styleName='element'>
+				<div className="wrapper">
 					{this.props.children}
 				</div>
 			</header>
@@ -26,19 +26,4 @@ let Header = React.createClass({
 	}
 });
 
-let LogoIcon = null;
-
-let Logo = React.createClass({
-	render: function(){
-		var logo = getLogoSettings();
-		var href = Meteor.user() ? "/" + Meteor.user().username : '/login';
-
-		return (
-			<a className="logo home-link transition-link" href={href}>{logo}</a>
-		)
-	}
-});
-
-var getLogoSettings = function(){
-	return Settings.LogoIcon;
-}
+export default CSSModules(Header, styles);

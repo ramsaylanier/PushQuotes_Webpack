@@ -1,3 +1,9 @@
+import React, {Component} from 'react';
+import reactMixin from 'react-mixin';
+
+import MainLayout from './components/MainLayout.jsx';
+import Login from './components/Login/login.jsx';
+
 FlowRouter.route('/', {
 	triggersEnter: [function(context, redirect){
 		if (!Meteor.user()){
@@ -16,8 +22,7 @@ FlowRouter.route('/login', {
 	}],
 	action: function(){
 		ReactLayout.render(MainLayout, {
-			noHeader: true,
-			content: <LoginPage/>
+			content: <Login/>
 		})
 	}
 });
