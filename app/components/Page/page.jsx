@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
-import CSSModules from 'react-css-modules';
 
 import Settings from '../../settings.js';
 import PageAnimations from './animations.js';
@@ -26,7 +25,7 @@ const Page = React.createClass({
 
 		let children = this.props.children;
 		return(
-			<div className={className}>
+			<div className={className + ' page__live'}>
 				{children}
 			</div>
 		)

@@ -28,17 +28,19 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass')
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]!sass-loader'
       }
     ],
   },
   plugins: [
     new webpack.PrefetchPlugin("react"),
     new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment"),
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin('[name].css', {
+      allChunks: true
+    })
   ]
 };

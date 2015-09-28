@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
-import CSSModules from 'react-css-modules';
-
 import styles from './header.css';
 
 const Header = React.createClass({
-	mixins: [ReactMeteorData],
+	mixin: [ReactMeteorData],
+
 	getMeteorData(){
 		return{
 			loggedIn: Meteor.user()
 		}
 	},
-	render: function(){
+
+	render(){
+
+		console.log(styles);
 
 		let className = styles.element;
-		console.log(this.data);
 
 		return (
-			<header styleName='element'>
+			<header className={className}>
 				<div className="wrapper">
 					{this.props.children}
 				</div>
@@ -26,4 +27,4 @@ const Header = React.createClass({
 	}
 });
 
-export default CSSModules(Header, styles);
+export default Header;
