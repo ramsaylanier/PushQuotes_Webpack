@@ -3,9 +3,6 @@ import Quotes from '../collections/quotes.js';
 
 function verifyQuoteAttributes(quoteAttributes, userId, deckId, quoteId){
 
-	console.log(quoteId);
-	console.log(deckId);
-
 	if (!deckId){
 		throw new Meteor.Error(422, 'Your quote must belong to a deck.');
 	}
@@ -47,7 +44,7 @@ Meteor.methods({
 		const slide = quoteAttributes.slide;
 		const author = this.userId;
 
-		const quoteId = Quotes.insert({deckId: deckId, author: author, text: text, order: order, slide: slide, tweets: 0});
+		const quoteId = Quotes.insert({deckId: deckId, author: author, text: text, order: order, slide: slide, pushed: false, tweets: 0});
 		Decks.update({_id: deckId}, {$addToSet: {quotes: quoteId}});
 
 		return quoteId;

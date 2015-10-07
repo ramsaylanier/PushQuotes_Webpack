@@ -26,5 +26,5 @@ service-configuration
 fastclick
 ramsay:errors
 reactive-var
-msavin:mongol
 blaze-html-templates
+meteortoys:allthings

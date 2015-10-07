@@ -5,6 +5,8 @@
 	top: 0;
 	right: -200%;
 	height: 100vh;
+	padding: $headerHeight + 16px 0px 16px 0px;
+	border-left: 10px solid $dark;
 	display: flex;
 	align-content: center;
 	justify-content: space-around;
@@ -12,8 +14,7 @@
 	@media #{$tablet}, #{$desktop}, #{$desktop-xl}{
 		width: 80%;
 		max-width: 600px;
-		background-color: $dark;
-
+		background-color: fade-out($dark, .1);
 	}
 
 	@media #{$mobile}{
@@ -36,7 +37,7 @@
 		width: 100%;
 	}
 	@media #{$tablet}, #{$desktop}, #{$desktop-xl}{
-		padding: 2rem 1rem 4rem 1rem;
+		// padding: 4rem 1rem 4rem 1rem;
 		max-height: 100%;
 		border-radius: 2px;
 		max-width: 500px;
