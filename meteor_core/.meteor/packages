@@ -8,12 +8,10 @@ accounts-password
 react-meteor-data
 babel-runtime
 kadira:flow-router
-kadira:react-layout
 standard-minifiers
 meteor-base
 mobile-experience
 mongo
-blaze-html-templates
 session
 jquery
 tracker
@@ -23,4 +21,10 @@ random
 ejson
 spacebars
 check
-react
+accounts-twitter
+service-configuration
+fastclick
+ramsay:errors
+reactive-var
+msavin:mongol
+blaze-html-templates

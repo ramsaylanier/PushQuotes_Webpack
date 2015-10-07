@@ -2,37 +2,67 @@ import React, {Component} from 'react';
 import reactMixin from 'react-mixin';
 
 import Settings from '../../settings.js';
-import PageAnimations from './animations.js';
+import PageAnimations from './PageAnimations.js';
+import AnimateItem from '../../animations.js'
 
 import styles from './page.scss';
+import wrapperStyles from '../../Stylesheets/wrapper.scss';
 
 // Write your package code here!
 const Page = React.createClass({
+
 	componentDidMount(){
+		CurrentPageRef = this.refs.page;
+
 		if (Settings.AnimatePages){
-			// var item = $(this.getDOMNode());
-			// var animation = this.props.animation || PageAnimations.animateIn;
-			// AnimateItem(item, PageAnimations.animateIn);
+			var item = React.findDOMNode(this.refs.page);
+			var animation = this.props.animation || PageAnimations.animateIn;
+			AnimateItem(item, PageAnimations.animateIn);
 		}
 	},
+
 	render(){
-		let bgImage = {
-			backgroundImage: "url('" + this.props.backgroundImage + "')",
-		}
-
-		let className = styles.element;
-
-
+		let className = this.props.className || styles.base;
 		let children = this.props.children;
+
+		let bg = this.props.backgroundImage && {
+			backgroundImage: "url('" + this.props.backgroundImage + "')",
+		};
+
 		return(
-			<div className={className + ' page__live'}>
-				{children}
-			</div>
+				<div ref="page" className={className} style={bg}>
+					{children}
+				</div>
 		)
 	}
 });
 
+const PageHero = React.createClass({
+	render(){
+
+		let className = styles.hero;
+		let contentClassName = styles.hero__content;
+		let wrapperClassName = wrapperStyles.main;
+		var heroImage = this.props.heroImage || null;
+
+		var style = {
+			backgroundImage: "url('" + heroImage + "')"
+		}
+
+		return (
+			<div className={className} style={style}>
+				<div className={wrapperClassName}>
+					<div className={contentClassName}>
+						{this.props.children}
+					</div>
+				</div>
+			</div>
+		)
+	}
+})
+
 const PageHeader = React.createClass({
+
 	render: function(){
 
 		var bg = this.props.backgroundImage && {
@@ -48,27 +78,25 @@ const PageHeader = React.createClass({
 });
 
 const PageTitle = React.createClass({
-	componentDidMount: function(){
-		var item = this.getDOMNode();
-		$(item).velocity({
-			opacity: 1,
-			scale: [1, 1.1]
-		}, 1000, [.5, .1, .1, 1])
-	},
-	render: function(){
+	render(){
+
+		let className = styles.title;
+
 		return (
-			<h1 className="page-title">
-				{this.props.children}
-			</h1>
+			<h1 className={className}>{this.props.children}</h1>
 		)
 	}
 });
 
 const PageContent = React.createClass({
 	render(){
+
+		let className = styles.content;
+		let wrapperClassName = wrapperStyles.main;
+
 		return(
-			<div className={"page-content " + this.props.classes}>
-				<div className="wrapper">
+			<div className={className}>
+				<div className={wrapperClassName}>
 					{this.props.children}
 				</div>
 			</div>
@@ -98,4 +126,4 @@ const PageSeparator = React.createClass({
 	}
 });
 
-export { Page, PageHeader, PageTitle, PageContent, PageSection, PageSeparator };
+export { Page, PageHero, PageHeader, PageTitle, PageContent, PageSection, PageSeparator };

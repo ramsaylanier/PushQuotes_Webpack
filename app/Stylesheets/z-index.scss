@@ -1,0 +1,18 @@
+:global{
+
+  .alerts__container{
+    z-index: 1000;
+  }
+
+  .modal__base{
+    z-index: 975;
+  }
+
+  .header__base{
+    z-index: 900;
+  }
+
+  .page__element{
+    z-index: 1;
+  }
+}

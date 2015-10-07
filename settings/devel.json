@@ -1,7 +1,23 @@
 {
-  "public": {
+  "public" : {
     "env": "DEVEL",
-    "foo": "bar"
-  },
-  "secret": "golf1234"
+		"ga": {
+		  "account":"UA-59142366-1"
+		},
+		"facebook": {
+			"appId":"880094882064053"
+		}
+	},
+	"twitter": {
+		"public":"HwQgnEeKf0y1SFKbiy26BcY7F",
+		"private":"Kir3v8JG7xtC4ZV7nZ51rlHUZRzifbJmWlYEaqCj4TqKgSJqy4"
+	},
+	"facebook": {
+		"appId":"880094882064053",
+		"appSecret":"b1bd337cad5fabf74abacff010f9e623"
+	},
+	"slideshare": {
+		"apikey":"zp7QcUJG",
+		"secret":"rgRWDLjG"
+	}
 }

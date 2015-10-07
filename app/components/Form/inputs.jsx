@@ -1,13 +1,17 @@
+import React, {Component} from 'react';
 import Label from './label';
+import styles from './form.scss';
 
 const InputType = React.createClass({
+
 	getInitialState(){
 		return {value: this.props.value, checked: this.props.checked}
 	},
+
 	componentDidMount(){
-		var control = $(this.getDOMNode());
-		var input = control.find('.input-field');
-		var label = input.prev('label');
+		let control = $(this.getDOMNode());
+		let input = $(React.findDOMNode(this.refs.input));
+		let label = $(React.findDOMNode(this.refs.label));
 
 		if (!input.length || !label.length){
 			return false;
@@ -15,17 +19,19 @@ const InputType = React.createClass({
 			this.activateField();
 		}
 	},
+
 	handleChange(e){
+		this.activateField(e);
 		if (this.props.type == 'checkbox'){
 			this.setState({checked: e.target.checked})
 		} else {
 			this.setState({value: e.target.value});
 		}
 	},
+
 	activateField(e){
-	 	var control = $(this.getDOMNode());
-		var input = control.find('.input-field');
-		var label = input.prev('label');
+		let input = $(React.findDOMNode(this.refs.input));
+		let label = $(React.findDOMNode(this.refs.label));
 
 		this.setState({isFocused:true});
 
@@ -34,10 +40,10 @@ const InputType = React.createClass({
 			ease: Power2.easeOut
 		})
 	},
+
 	deactivateField(e){
-		var control = $(this.getDOMNode());
-		var input = control.find('.input-field');
-		var label = input.prev('label');
+		let input = $(React.findDOMNode(this.refs.input));
+		let label = $(React.findDOMNode(this.refs.label));
 
 		if (input.val().length == 0){
 			this.setState({isFocused:false});
@@ -48,28 +54,30 @@ const InputType = React.createClass({
 			});
 		}
 	},
+
 	render(){
-		var hasLabel = this.props.label;
-		var isTextArea = this.props.type == 'textarea';
-		var isRange = this.props.type == 'range';
-		var value = this.state.value;
+		let hasLabel = this.props.label;
+		let isTextArea = this.props.type === 'textarea';
+		let isRange = this.props.type === 'range';
+		let value = this.state.value;
+		let controlClassName = styles.control;
+		let inputClassNames = [styles[this.props.type]];
+
+		_.each(this.props.className, function(className){
+			inputClassNames.push('form__' + className);
+		});
 
 		return (
-			<div
-				className={"form-control " + this.props.visibility + " " + this.props.type + "-control"}
-				ref="formControl"
-			>
-					{ hasLabel && <Label {...this.props} /> }
-					{ isTextArea ?
-						<textarea
-							{...this.props}
-							value={value}
-							onChange={this.handleChange}
-						>
+			<div className={controlClassName} ref="formControl">
+					{this._label()}
+
+					{isTextArea ?
+						<textarea ref="input" {...this.props} className={inputClassNames.join(' ')} value={value} onChange={this.handleChange}>
 							{value}
 						</textarea> :
-						<input
+						<input ref="input"
 							{...this.props}
+							className={inputClassNames.join(' ')}
 							value={value}
 							checked={this.state.checked}
 							onFocus={this.activateField}
@@ -80,12 +88,29 @@ const InputType = React.createClass({
 					{isRange &&
 						<output>{value || this.props.max / 2}</output>
 					}
-				<span
-					className="input-overlay"
-				>
-				</span>
+
+					{this._overlay()}
 			</div>
 		)
+	},
+
+	_label(){
+		if (this.props.label){
+			return (
+				<Label ref="label" {...this.props} />
+			)
+		}
+	},
+
+	_overlay(){
+		let type = this.props.type;
+
+		if (type !== 'submit' && type !== 'checkbox'){
+			let overlayClassName = styles.overlay;
+			return (
+				<span className={overlayClassName}></span>
+			)
+		}
 	}
 });
 

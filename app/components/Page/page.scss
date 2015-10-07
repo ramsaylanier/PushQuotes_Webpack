@@ -1,6 +1,6 @@
-@import "../../Stylesheets/scss/vars";
+@import "../../Stylesheets/vars";
 
-.element{
+.base{
 	position: relative;
 	min-height: 100vh;
 	background-color: darken(white, 10%);
@@ -8,26 +8,23 @@
 	background-position: center center;
 	padding-top: $headerHeight;
 	opacity: 0;
+	transition: opacity 300ms ease-out;
+}
 
-	&.live{
-		margin-top: 3rem;
+.live{
+	composes: base;
+	height: 100vh;
+	overflow: hidden;
+
+	.hero{
+		max-height: 0vh;
+		overflow: hidden;
+		padding: 0rem;
 	}
 
-	&.presentation{
-
-		height: 100vh;
-		overflow: hidden;
-
-		.page-hero{
-			max-height: 0vh;
-			overflow: hidden;
-			padding: 0rem;
-		}
-
-		.page-content{
-			height: 100%;
-			padding-top: 1.5rem;
-		}
+	.content{
+		height: 100%;
+		padding-top: 1.5rem;
 	}
 }
 
@@ -41,7 +38,7 @@
 	padding: .5rem;
 }
 
-.hero-content{
+.hero__content{
 	background-color: fade-out(white, .2);
 	padding: 1rem;
 	margin: 2rem 0rem;
