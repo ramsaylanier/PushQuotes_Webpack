@@ -1,9 +1,8 @@
-// import Decks from './collections/decks.js';
-// import Quotes from './collections/quotes.js';
 import './publications/deckPublications';
 import './publications/quotePublications';
 import './methods/deckMethods.js';
 import './methods/quoteMethods.js';
+
 
 Meteor.startup(function(){
 	ServiceConfiguration.configurations.remove();
@@ -104,3 +103,11 @@ Meteor.publish('userProfile', function(){
 		return this.ready()
 	return Meteor.users.find(this.userId);
 });
+
+// smoke test that these are present
+Npm.require;
+Assets;
+require('fs').readFile.call;
+
+console.log('\n\nRunning on server only');
+console.log('There are # posts:', Posts.find().fetch().length);
