@@ -1,5 +1,5 @@
-import Decks from '../collections/decks.js';
-import Quotes from '../collections/quotes.js';
+// import Decks from '../collections/decks.js';
+// import Quotes from '../collections/quotes.js';
 
 function verifyQuoteAttributes(quoteAttributes, userId, deckId, quoteId){
 

@@ -1,5 +1,4 @@
-import Quotes from '../collections/quotes.js';
-
+// import Quotes from '../collections/quotes.js';
 
 Meteor.publish('quoteList', function(query){
 

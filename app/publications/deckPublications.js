@@ -1,4 +1,4 @@
-import Decks from '../collections/decks.js';
+// import Decks from '../collections/decks.js';
 
 Meteor.publish('deckList', function(query){
 	// var user = Meteor.users.findOne({username: deckAuthorName})._id;

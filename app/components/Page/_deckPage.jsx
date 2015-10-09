@@ -10,8 +10,8 @@ import AddQuoteModal from '../Modal/_addQuoteModal.jsx';
 import EditDeckModal from '../Modal/_editDeckModal.jsx';
 
 //collections
-import Decks from '../../collections/decks.js';
-import Quotes from '../../collections/quotes.js';
+// import Decks from '../../collections/decks.js';
+// import Quotes from '../../collections/quotes.js';
 
 //styles
 import styles from './page.scss';

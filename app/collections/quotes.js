@@ -1,3 +1,3 @@
-const Quotes = new Mongo.Collection('quotes');
-
-export default Quotes;
+// const Quotes = new Mongo.Collection('quotes');
+//
+// export default Quotes;

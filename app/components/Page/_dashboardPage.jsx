@@ -1,7 +1,7 @@
 import React from 'react';
 
 //components
-import Decks from '../../collections/decks.js';
+// import Decks from '../../collections/decks.js';
 import { Page, PageContent } from '../Page/page.jsx';
 import NotFoundPage from '../Page/_notFoundPage.jsx';
 import DeckList from '../Decks/deckList.jsx';
