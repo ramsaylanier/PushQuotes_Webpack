@@ -1,0 +1,1 @@
+This is the core package for my React Component Library which serves to set dependencies for each component package. 

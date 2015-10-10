@@ -1,0 +1,148 @@
+@import '../../Stylesheets/vars';
+
+.base{
+  display: flex;
+	position: relative;
+	background-color: white;
+	margin-bottom: .5rem;
+	box-shadow: 0px 5px 5px -5px $dark;
+	opacity: 0;
+	transition: background-color 300ms ease-out;
+	justify-content: space-between;
+
+	&.edit-mode{
+		background-color: white;
+	}
+}
+
+.page.edit-mode .card{
+
+	&:not(.edit-mode){
+		opacity: .2 !important;
+	}
+}
+
+.details{
+  flex: 1;
+	padding: 1rem .75rem 2rem .75rem;
+}
+
+.notification{
+  background-color: $green;
+  color: white;
+  padding: .25rem .5rem;
+  display: inline-block;
+  border-radius: 2px;
+  float: right;
+}
+
+.title{
+	font-size: 1.3rem;
+	font-weight: 900;
+	line-height: 1.7rem;
+	margin-bottom: .5rem;
+	cursor: pointer;
+
+	@media #{$mobile}{
+		font-size: 1rem;
+		line-height: 1.3rem;
+	}
+
+	a{
+		color: $dark;
+		transition: color 300ms ease-out;
+
+		&:hover{
+			color: $primary;
+		}
+	}
+}
+
+.image{
+  flex: 1;
+	background-size: cover;
+	background-position: center center;
+}
+
+.description{
+	font-size: .8rem;
+	font-style: italic;
+}
+
+
+.hashtag{
+	color: $primary;
+	margin-right: .5rem;
+	font-size: .8rem;
+	border-radius: 3px;
+	font-weight: 900;
+
+	&:last-of-type{
+		margin-right: 0;
+	}
+}
+
+$ellipsesSize: 5px;
+
+.card-actions{
+	position: absolute;
+	bottom: $ellipsesSize * 2.5;
+	right: $ellipsesSize * 4;
+	width: $ellipsesSize * 5;
+	padding: 5px;
+
+	&:hover{
+
+		.ellipses{
+			background-color: $primary;
+
+			&:before, &:after{
+				background-color: $primary;
+			}
+
+			&:before{
+				transform: translateX(-2px);
+			}
+
+			&:after{
+				transform: translateX(2px);
+			}
+		}
+	}
+}
+
+.card-action-item{
+	padding: 1rem 0rem;
+	&:not(:last-of-type){
+		border-bottom: 1px solid $dark;
+	}
+}
+
+.ellipses{
+	position: relative;
+	display: block;
+	width: $ellipsesSize;
+	height: $ellipsesSize;
+	border-radius: 50%;
+	background-color: $dark;
+	transform: translateX($ellipsesSize * 2);
+	transition: background 200ms ease-out;
+
+	&:before, &:after{
+		content: '';
+		position: absolute;
+		width: $ellipsesSize;
+		height: $ellipsesSize;
+		background-color: $dark;
+		border-radius: 50%;
+		transition: all 200ms ease-out;
+	}
+
+	&:before{
+		left: -$ellipsesSize * 2;
+	}
+
+	&:after{
+		right: -$ellipsesSize * 2;
+	}
+}

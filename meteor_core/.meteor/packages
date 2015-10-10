@@ -4,14 +4,18 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-accounts-ui
-accounts-password
+
 react-meteor-data
 babel-runtime
+kadira:flow-router
+standard-minifiers
 meteor-base
 mobile-experience
+accounts-password
+babel-runtime
 mongo
 blaze-html-templates
+
 session
 jquery
 tracker
@@ -21,4 +25,12 @@ random
 ejson
 spacebars
 check
+
+accounts-twitter
+service-configuration
+fastclick
+ramsay:errors
+reactive-var
+blaze-html-templates
+meteortoys:allthings
 mindfront:why-reminify

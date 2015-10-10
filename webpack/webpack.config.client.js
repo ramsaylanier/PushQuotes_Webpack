@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: __dirname,
@@ -26,12 +27,19 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]'
       },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]!sass-loader'
+      }
     ],
   },
   plugins: [
     new webpack.PrefetchPlugin("react"),
-    new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment")
+    new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment"),
+    new ExtractTextPlugin('[name].css', {
+      allChunks: true
+    })
   ]
 };
