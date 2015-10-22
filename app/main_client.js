@@ -1,10 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './router.jsx';
 import './methods/deckMethods.js';
 import './methods/quoteMethods.js';
+import './methods/userMethods.js';
 
 Meteor.startup(() => {
-  React.initializeTouchEvents(true);
+  // React.initializeTouchEvents(true);
 	// window.viewportUnitsBuggyfill.init({force:true});
 
 	var loginStyle = "popup";
@@ -28,7 +30,6 @@ Meteor.startup(() => {
 
 	Accounts.onLogin(function(){
 		var user = Meteor.user();
-		console.log(user.profile);
 
 		if (!user.profile.avatar){
 			Meteor.users.update(user._id, {$set: {'profile.avatar': '/img/default-avatar.png'}});

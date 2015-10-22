@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import reactMixin from 'react-mixin';
 
 //PAGES
@@ -25,7 +26,7 @@ FlowRouter.route('/login', {
 		}
 	}],
 	action: function(){
-		React.render(
+		ReactDOM.render(
 			<MainLayout content={<LoginPage/>}/>,
 			document.getElementById('react-root')
 		)
@@ -34,7 +35,7 @@ FlowRouter.route('/login', {
 
 FlowRouter.route('/register', {
 	action: function(){
-		React.render(
+		ReactDOM.render(
 			<MainLayout content={<RegisterPage/>}/>,
 			document.getElementById('react-root')
 		)
@@ -44,7 +45,7 @@ FlowRouter.route('/register', {
 FlowRouter.route('/:username', {
 	name: 'dashboardPage',
 	action: function(params){
-		React.render(
+		ReactDOM.render(
 			<MainLayout
 				content={<DashboardPage/>}/>,
 			document.getElementById('react-root')
@@ -55,7 +56,7 @@ FlowRouter.route('/:username', {
 FlowRouter.route('/:username/:slug', {
 	name: 'deckPage',
 	action: function(params){
-		React.render(
+		ReactDOM.render(
 			<MainLayout content={<DeckPage/>}/>,
 			document.getElementById('react-root')
 		)
@@ -65,7 +66,7 @@ FlowRouter.route('/:username/:slug', {
 FlowRouter.route('/:username/:slug/live', {
 	name: 'deckPage',
 	action: function(params){
-		React.render(
+		ReactDOM.render(
 			<MainLayout content={<DeckPresentationPage/>}/>,
 			document.getElementById('react-root')
 		)

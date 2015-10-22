@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 //components
 import { Page, PageContent } from '../Page/page.jsx';
@@ -43,7 +44,7 @@ let renderForgotPasswordForm = (e)=>{
 
 	$('.page .wrapper').append('<div id="forgot-password-form-wrapper"></div>');
 
-	React.render(
+	ReactDOM.render(
 		<div>
 			<Form attributes={forgotPasswordForm} />
 		</div>,

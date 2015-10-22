@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { BackIcon, MenuIcon, SearchIcon } from '../Icons/icons.jsx';
 import Avatar from '../Avatar/avatar.jsx';
 
@@ -74,7 +75,7 @@ const ShelfNav = {
   					$('.nav-list').removeClass('active');
   					$('.nav-toggle').removeClass('active');
 
-  					React.render(
+  					ReactDOM.render(
   						<Modal>
   							<Form attributes={newDeckForm} />
   						</Modal>,
@@ -133,13 +134,13 @@ const PrimaryNav = {
   				icon: <Avatar image={Meteor.user().profile.avatar} />
   				,
   				mouseEnter: function(e){
-  					React.render(
+  					ReactDOM.render(
   						<Header active={true} />,
   						$('#header').get(0)
   					);
   				},
   				mouseLeave: function(e){
-  					React.render(
+  					ReactDOM.render(
   						<Header active={false} />,
   						$('#header').get(0)
   					);
@@ -160,7 +161,7 @@ const PrimaryNav = {
   								var modal = '<div class="modal new-form-modal"></div>';
   								$('body').append(modal);
 
-  								React.render(
+  								ReactDOM.render(
   									<Modal>
   										<Form attributes={newDeckForm} />
   									</Modal>,

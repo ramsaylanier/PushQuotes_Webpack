@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import QuoteAnimations from './quoteAnimations.js';
 
 //components
@@ -29,7 +31,7 @@ const QuoteItem = React.createClass({
 	},
 
 	componentDidMount(){
-		let item = this.getDOMNode(this.refs.quoteListItem);
+		let item = ReactDOM.findDOMNode(this.refs.quoteListItem);
 		let itemCount = Session.get('quoteCount');
 		let isAuthor = Meteor.userId() === this.props.deck.author;
 
@@ -43,7 +45,7 @@ const QuoteItem = React.createClass({
 
 	componentDidUpdate(oldProps){
 		if (this.state.isAuthor){
-			let item = this.getDOMNode(this.refs.quoteListItem);
+			let item = ReactDOM.findDOMNode(this.refs.quoteListItem);
 			this.setPan(item);
 		}
 

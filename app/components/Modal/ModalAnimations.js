@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { currentModalRef } from './modal.jsx';
 
 const ModalAnimations = {
@@ -12,8 +14,8 @@ const ModalAnimations = {
 }
 
 ModalAnimations.animateOut = function(){
-	let page = $(React.findDOMNode(CurrentPageRef));
-	let modal = $(React.findDOMNode(CurrentModalRef));
+	let page = $(ReactDOM.findDOMNode(CurrentPageRef));
+	let modal = $(ReactDOM.findDOMNode(CurrentModalRef));
 	let dX = modal.outerWidth();
 
 	TweenMax.to(page, .4, {
@@ -35,8 +37,8 @@ ModalAnimations.animateOut = function(){
 }
 
 ModalAnimations.animateIn = function(){
-	let page = $(React.findDOMNode(CurrentPageRef));
-	let modal = $(React.findDOMNode(CurrentModalRef));
+	let page = $(ReactDOM.findDOMNode(CurrentPageRef));
+	let modal = $(ReactDOM.findDOMNode(CurrentModalRef));
 	let dX = modal.outerWidth() - ( (window.innerWidth - $('.wrapper__main').outerWidth()) / 2)
 
 	TweenMax.to(page, .4, {

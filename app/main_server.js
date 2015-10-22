@@ -2,6 +2,7 @@ import './publications/deckPublications';
 import './publications/quotePublications';
 import './methods/deckMethods.js';
 import './methods/quoteMethods.js';
+import './methods/userMethods.js';
 
 
 Meteor.startup(function(){
@@ -109,5 +110,5 @@ Npm.require;
 Assets;
 require('fs').readFile.call;
 
-console.log('\n\nRunning on server only');
-console.log('There are # posts:', Posts.find().fetch().length);
+// console.log('\n\nRunning on server only');
+// console.log('There are # posts:', Posts.find().fetch().length);

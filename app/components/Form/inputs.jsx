@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Label from './label';
 import styles from './form.scss';
 
@@ -9,9 +10,8 @@ const InputType = React.createClass({
 	},
 
 	componentDidMount(){
-		let control = $(this.getDOMNode());
-		let input = $(React.findDOMNode(this.refs.input));
-		let label = $(React.findDOMNode(this.refs.label));
+		let input = $(ReactDOM.findDOMNode(this.refs.input));
+		let label = $(ReactDOM.findDOMNode(this.refs.label));
 
 		if (!input.length || !label.length){
 			return false;
@@ -30,8 +30,8 @@ const InputType = React.createClass({
 	},
 
 	activateField(e){
-		let input = $(React.findDOMNode(this.refs.input));
-		let label = $(React.findDOMNode(this.refs.label));
+		let input = $(ReactDOM.findDOMNode(this.refs.input));
+		let label = $(ReactDOM.findDOMNode(this.refs.label));
 
 		this.setState({isFocused:true});
 
@@ -42,8 +42,8 @@ const InputType = React.createClass({
 	},
 
 	deactivateField(e){
-		let input = $(React.findDOMNode(this.refs.input));
-		let label = $(React.findDOMNode(this.refs.label));
+		let input = $(ReactDOM.findDOMNode(this.refs.input));
+		let label = $(ReactDOM.findDOMNode(this.refs.label));
 
 		if (input.val().length == 0){
 			this.setState({isFocused:false});

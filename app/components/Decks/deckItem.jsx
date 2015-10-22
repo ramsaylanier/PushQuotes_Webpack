@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import DeckTitle from './deckTitle.jsx';
 import ModalToggle from '../Toggles/_modalToggle.jsx';
 import EditDeckModal from '../Modal/_editDeckModal.jsx';
@@ -11,7 +12,7 @@ const DeckItem = React.createClass({
 	componentDidMount(){
 		let self = this;
 		let itemCount = Session.get('itemCount');
-		let item = this.getDOMNode();
+		let item = ReactDOM.findDOMNode(this);
 		Meteor.setTimeout(function(){
 
 			TweenMax.fromTo(item, 1, {

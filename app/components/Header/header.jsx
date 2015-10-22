@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { LogoIcon } from '../Icons/icons.jsx';
 import Navs from '../Navs/_navItems.jsx';
 import { NavList } from '../Navs/navs.jsx';

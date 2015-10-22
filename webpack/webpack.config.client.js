@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: __dirname,
@@ -22,7 +21,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel?stage=0',
         exclude: /node_modules|lib/,
       },
       {
@@ -37,9 +36,6 @@ module.exports = {
   },
   plugins: [
     new webpack.PrefetchPlugin("react"),
-    new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment"),
-    new ExtractTextPlugin('[name].css', {
-      allChunks: true
-    })
+    new webpack.PrefetchPlugin("react/lib/ReactComponentBrowserEnvironment")
   ]
 };

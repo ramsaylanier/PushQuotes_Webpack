@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import reactMixin from 'react-mixin';
 
 import Settings from '../../settings.js';
@@ -15,7 +16,7 @@ const Page = React.createClass({
 		CurrentPageRef = this.refs.page;
 
 		if (Settings.AnimatePages){
-			var item = React.findDOMNode(this.refs.page);
+			var item = ReactDOM.findDOMNode(this.refs.page);
 			var animation = this.props.animation || PageAnimations.animateIn;
 			AnimateItem(item, PageAnimations.animateIn);
 		}

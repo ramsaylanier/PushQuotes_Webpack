@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styles from './button.scss';
 
 const Button = React.createClass({
 
 	render(){
     let className = styles[this.props.type] || styles.base;
-		console.log(className);
 
 		return (
 			<button {...this.props} className={className} onClick={this.props.action}>

@@ -1,20 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import InputType from "./inputs.jsx";
 import styles from "./form.scss";
 
 // Write your package code here!
 const Form = React.createClass({
-
-	componentDidMount(){
-		if (this.props.attributes.animateIn){
-			var item = this.getDOMNode();
-
-			$(item).velocity({
-				opacity: [1,0],
-				translateY: [0, centerY]
-			}, 1000, [300, 20])
-		}
-	},
 
 	render(){
 		let fields = this.props.attributes.fields;

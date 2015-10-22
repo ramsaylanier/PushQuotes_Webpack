@@ -192,7 +192,6 @@ Meteor.methods({
 		    	return 'Password is not valid.'
 		    }
 		  } catch (exc) {
-
 		      console.log(exc.message);
 		      return exc.message;
 		      // 'User is not found', 'User has no password set', etc
