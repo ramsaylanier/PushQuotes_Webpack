@@ -2,7 +2,6 @@ import React from 'react';
 import Form from '../Form/form.jsx';
 import { newQuoteForm } from '../Form/Forms.js';
 import wrapperStyles from '../../Stylesheets/wrapper.scss';
-import Quotes from '../../collections/quotes.js';
 
 const AddQuoteModal = React.createClass({
 

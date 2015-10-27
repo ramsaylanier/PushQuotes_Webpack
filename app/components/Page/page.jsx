@@ -110,8 +110,10 @@ const PageSection = React.createClass({
 		return(
 			<section className={"page-section " + this.props.className}>
 				<div className="wrapper">
+					<h1>TEST</h1>
 					{this.props.children}
 				</div>
+
 				{this.props.separator && <PageSeparator/>}
 			</section>
 		)
