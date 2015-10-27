@@ -75,7 +75,22 @@ Meteor.methods({
 	},
 
 	pushQuote: function(quoteId){
+
 		return Quotes.update(quoteId, {$set: {pushed: true}});
+	},
+
+	pushQuoteFromExtension: function(slideURL, username, deckURL){
+		console.log(slideURL);
+		console.log(username);
+		console.log(deckURL);
+		var slide = slideURL.replace(/^\D+/g, '');
+		var deck = Decks.findOne({authorName: username, slug: deckURL});
+
+		if (!deck.live){
+			Decks.update({_id: deck._id}, {$set: {live:true}});
+		}
+
+		return Quotes.update({deckId: deck._id, slide: slide}, {$set: {pushed: true}});
 	},
 
 	incTweets: function(quoteId){

@@ -5,7 +5,6 @@ import React from 'react';
 import { Page, PageContent } from '../Page/page.jsx';
 import NotFoundPage from '../Page/_notFoundPage.jsx';
 import DeckList from '../Decks/deckList.jsx';
-import AddDeckModal from '../Modal/addDeckModal.jsx';
 import ModalToggle from '../Toggles/_modalToggle.jsx';
 
 //styles
@@ -43,11 +42,11 @@ const DashboardPage = React.createClass({
 				<div className={wrapperStyles.page}>
 					<Page>
 						<PageContent>
-							<DeckList decks={this.data.decks}/>
+							
 						</PageContent>
 					</Page>
 
-					<ModalToggle modal={<AddDeckModal/>}/>
+					<ModalToggle modal={}/>
 				</div>
 			)
 		} else {
